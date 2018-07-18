@@ -6,7 +6,7 @@ import Quote from "./components/Layout/QuoteContainer/Quote";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <div className="container row">
         <Input />
         <Quote />
       </div>

@@ -1,0 +1,1 @@
+export const WEBAPIURL = "https://api.ofx.com/PublicSite.ApiService/OFX/spotrate/Individual";
