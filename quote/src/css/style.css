@@ -1,0 +1,158 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700");
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+}
+h1 {
+  border-bottom: 2px solid #c6dcde;
+  color: #444;
+  font-size: 30px;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 28px;
+}
+h4 {
+  font-size: 24px;
+}
+p {
+  font-size: 18px;
+}
+#capture hr {
+  background-color: #c6dcde;
+  border: 0;
+  height: 2px;
+}
+
+/* container capture style */
+#capture {
+  margin: 0 auto;
+  padding-top: 30px;
+}
+
+/* rateForm style */
+.rateForm label span {
+  color: #c45558;
+}
+.rateForm_form {
+  border: 1px solid #cccccc;
+}
+.rateForm_form_top {
+  background-color: #ffffff;
+  padding: 20px 20px 0;
+}
+.phone-number .form-group:nth-child(1) {
+  padding-right: 0;
+}
+.phone-number .form-group:nth-child(2) {
+  padding-left: 0;
+}
+.rateForm_form__bottom {
+  background-color: #fbfbfb;
+  padding: 0 20px 20px;
+}
+.rateForm_form__bottom button.btn {
+  background-color: #307daf;
+  border-radius: 20px/20px;
+  color: #ffffff;
+  width: 150px;
+}
+
+/* rate style */
+.rate {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.rate_content {
+  background-color: #fbfbfb;
+  border: 1px solid #cccccc;
+  padding: 20px;
+  height: 100%;
+}
+.rate_container {
+  margin: 0 auto;
+  width: 40%;
+}
+.rate_container h2 {
+  font-weight: 700;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+.rate_container h3 {
+  color: #52b393;
+  font-weight: bold;
+  text-align: center;
+}
+.rate_container h4 span {
+  color: #307daf;
+}
+.rate_container h4,
+.rate_container p {
+  padding: 5px;
+}
+.rate_container button.btn {
+  background-color: #307daf;
+  border-radius: 20px/20px;
+  color: #ffffff;
+  margin-top: 20px;
+  width: 150px;
+}
+
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+}
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+  /* rate style */
+  .rate_container {
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+  /* rate style */
+  .rate_container {
+    margin: 0 auto;
+    width: 70%;
+  }
+}
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+  /* rateForm */
+  .rateForm h1,
+  .rate h1 {
+    text-align: center;
+  }
+  /* rate style */
+  .rate {
+    margin-top: 20px;
+  }
+  .rate_container {
+    margin: 0 auto;
+    width: 80%;
+  }
+}
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+}
