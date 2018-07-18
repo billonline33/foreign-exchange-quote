@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import { loadQuoteInfo } from "../../../reducers/inputReducer";
 
 class Quote extends Component {
   constructor(props) {
@@ -12,14 +14,14 @@ class Quote extends Component {
         <div className="rate_content">
           <div className="rate_container">
             <p>OFX Customer Rate:</p>
-            <h3>0.7618</h3>
+            <h3>{this.props.customerRate}</h3>
             <p>From</p>
             <h4>
-              AUD <span>25,000.00</span>
+              {this.props.fromCurrency} <span>{this.props.fromAmount}</span>
             </h4>
             <p>To</p>
             <h4>
-              USD <span>19,045.00</span>
+              {this.props.toCurrency} <span>{this.props.customerAmount}</span>
             </h4>
             <div className="text-center">
               <button type="submit" className="btn ">
@@ -32,5 +34,18 @@ class Quote extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  customerRate: state.inputReducer.newQuote.CustomerRate,
+  customerAmount: state.inputReducer.newQuote.CustomerAmount,
+  fromCurrency: state.inputReducer.FromCurrency,
+  toCurrency: state.inputReducer.ToCurrency,
+  fromAmount: state.inputReducer.FromAmount
+});
+
+Quote = connect(
+  mapStateToProps,
+  null
+)(Quote);
 
 export default Quote;

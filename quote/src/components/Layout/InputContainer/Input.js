@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import InputReducer from "../../../reducers/inputReducer";
+import { loadQuoteInfo } from "../../../reducers/inputReducer";
 import { bindActionCreators } from "redux";
 import {
   DEFAULT_COUNTRY_CODE,
@@ -44,8 +44,12 @@ class Input extends Component {
 
   handleGetQuoteClick(e) {
     e.preventDefault();
-
     console.log("state=", this.state);
+    this.props.loadQuoteInfo(
+      this.state.fromCurrency,
+      this.state.toCurrency,
+      this.state.amount
+    );
   }
 
   render() {
@@ -195,5 +199,13 @@ class Input extends Component {
 const mapStateToProps = state => ({
   firstName: state.inputReducer.firstName
 });
+
+const mapDispatchToProps = dispatch =>
+  bindActionCreators({ loadQuoteInfo }, dispatch);
+
+Input = connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Input);
 
 export default Input;

@@ -12,11 +12,13 @@ const initialState = {
   phoneNumber: "",
   fromCurrency: "",
   toCurrency: "",
-  amount: 0
+  amount: 0,
+  newQuote: {}
 };
 
-const getQuote = (fromCurrency, toCurrency, amount) => {
-  let apiUrl = `${WEBAPIURL}/AUD/USD/10000?format=json`;
+const getQuoteFromWebService = (fromCurrency, toCurrency, amount) => {
+  let apiUrl = `${WEBAPIURL}/${fromCurrency}/${toCurrency}/${amount}?format=json`;
+  return axios.get(apiUrl);
 };
 
 export default (state = initialState, action) => {
@@ -30,4 +32,23 @@ export default (state = initialState, action) => {
     default:
       return state;
   }
+};
+
+export const loadQuoteInfo = (fromCurrency, toCurrency, amount) => {
+  return dispatch => {
+    getQuoteFromWebService(fromCurrency, toCurrency, amount)
+      .then(response => {
+        console.log("0000", response.data.CustomerRate);
+        dispatch({
+          type: GET_QUOTE,
+          newQuote: response.data
+        });
+      })
+      .catch(error => {
+        dispatch({
+          type: "REQUEST_FAILED",
+          error
+        });
+      });
+  };
 };
