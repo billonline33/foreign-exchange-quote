@@ -9,7 +9,6 @@ class Quote extends Component {
     return (
       <div className="rate col-12 col-md-6">
         <h1>Quick Quote</h1>
-        <hr />
         <div className="rate_content">
           <div className="rate_container">
             <p>OFX Customer Rate:</p>

@@ -2,18 +2,23 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import InputReducer from "../../../reducers/inputReducer";
 import { bindActionCreators } from "redux";
+import {
+  DEFAULT_COUNTRY_CODE,
+  DEFAULT_FROM_CURRENCY,
+  DEFAULT_TO_CURRENCY
+} from "../../../utils/constants";
 
 class Input extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      firsrName: "",
+      firstName: "",
       lastName: "",
       email: "",
-      countryCode: "",
+      countryCode: DEFAULT_COUNTRY_CODE,
       phoneNumber: "",
-      fromCurrency: "",
-      toCurrency: "",
+      fromCurrency: DEFAULT_FROM_CURRENCY,
+      toCurrency: DEFAULT_TO_CURRENCY,
       amount: 0
     };
 
@@ -83,14 +88,14 @@ class Input extends Component {
               <input
                 name="email"
                 type="email"
-                class="form-control"
+                className="form-control"
                 value={this.state.email}
                 onChange={this.handleInputChange}
                 placeholder="Email"
               />
             </div>
-            <div class="form-row phone-number">
-              <div class="form-group col-4 col-sm-3 col-md-3 col-lg-2">
+            <div className="form-row phone-number">
+              <div className="form-group col-4 col-sm-3 col-md-3 col-lg-2">
                 <select
                   className="form-control"
                   name="countryCode"

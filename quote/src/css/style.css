@@ -31,7 +31,7 @@ p {
 }
 
 /* container capture style */
-#capture {
+.capture {
   margin: 0 auto;
   padding-top: 30px;
 }
@@ -112,11 +112,9 @@ p {
   width: 150px;
 }
 
-
 .form-group {
   margin-bottom: 10px;
 }
-
 
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
