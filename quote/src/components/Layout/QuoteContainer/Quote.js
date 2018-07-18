@@ -7,6 +7,10 @@ class Quote extends Component {
     super(props);
   }
 
+  componentDidMount() {
+    console.log("00001=", this.props.fromCurrency);
+  }
+
   render() {
     return (
       <div className="rate col-12 col-md-6">
@@ -14,10 +18,10 @@ class Quote extends Component {
         <div className="rate_content">
           <div className="rate_container">
             <p>OFX Customer Rate:</p>
-            <h3>{this.props.customerRate}</h3>
+            <h3>{this.props.customerRate}&nbsp;</h3>
             <p>From</p>
             <h4>
-              {this.props.fromCurrency} <span>{this.props.fromAmount}</span>
+              {this.props.fromCurrency} <span>{this.props.amount}</span>
             </h4>
             <p>To</p>
             <h4>
@@ -38,9 +42,9 @@ class Quote extends Component {
 const mapStateToProps = state => ({
   customerRate: state.inputReducer.newQuote.CustomerRate,
   customerAmount: state.inputReducer.newQuote.CustomerAmount,
-  fromCurrency: state.inputReducer.FromCurrency,
-  toCurrency: state.inputReducer.ToCurrency,
-  fromAmount: state.inputReducer.FromAmount
+  fromCurrency: state.inputReducer.fromCurrency,
+  toCurrency: state.inputReducer.toCurrency,
+  amount: state.inputReducer.amount
 });
 
 Quote = connect(

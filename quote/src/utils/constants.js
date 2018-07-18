@@ -3,3 +3,4 @@ export const WEBAPIURL =
 export const DEFAULT_COUNTRY_CODE = "+61";
 export const DEFAULT_FROM_CURRENCY = "AUD";
 export const DEFAULT_TO_CURRENCY = "USD";
+export const DEFAULT_AMOUNT = 1000;

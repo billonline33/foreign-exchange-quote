@@ -5,7 +5,8 @@ import { bindActionCreators } from "redux";
 import {
   DEFAULT_COUNTRY_CODE,
   DEFAULT_FROM_CURRENCY,
-  DEFAULT_TO_CURRENCY
+  DEFAULT_TO_CURRENCY,
+  DEFAULT_AMOUNT
 } from "../../../utils/constants";
 
 class Input extends Component {
@@ -19,7 +20,7 @@ class Input extends Component {
       phoneNumber: "",
       fromCurrency: DEFAULT_FROM_CURRENCY,
       toCurrency: DEFAULT_TO_CURRENCY,
-      amount: 0
+      amount: DEFAULT_AMOUNT
     };
 
     this.handleGetQuoteClick = this.handleGetQuoteClick.bind(this);
@@ -176,7 +177,6 @@ class Input extends Component {
                   className="form-control"
                   value={this.state.amount}
                   onChange={this.handleInputChange}
-                  placeholder="Amount"
                 />
               </div>
             </div>
@@ -196,15 +196,11 @@ class Input extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  firstName: state.inputReducer.firstName
-});
-
 const mapDispatchToProps = dispatch =>
   bindActionCreators({ loadQuoteInfo }, dispatch);
 
 Input = connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(Input);
 
