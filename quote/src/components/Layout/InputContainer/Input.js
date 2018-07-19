@@ -20,14 +20,18 @@ class Input extends Component {
       phoneNumber: "",
       fromCurrency: DEFAULT_FROM_CURRENCY,
       toCurrency: DEFAULT_TO_CURRENCY,
-      amount: DEFAULT_AMOUNT
+      amount: DEFAULT_AMOUNT,
+      errors:{
+        firstName:true,
+        amount:true
+      }
     };
 
     this.handleGetQuoteClick = this.handleGetQuoteClick.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
-  handleSubmit() {
+  handleSubmit(e) {
     console.log("submit fired!");
   }
 
@@ -51,9 +55,25 @@ class Input extends Component {
       this.state.toCurrency,
       this.state.amount
     );
+
+    this.props.callbackFromParent(
+      this.state.fromCurrency,
+      this.state.toCurrency,
+      this.state.amount
+    );
   }
 
   render() {
+    const {
+      firstName,
+      lastName,
+      fromCurrency,
+      toCurrency,
+      amount
+    } = this.state;
+    const isEnabled =
+      firstName.length > 0 && lastName.length > 0 && amount > 200;
+
     return (
       <div className="rateForm col-12 col-md-6">
         <h1>Quick Quote</h1>
@@ -183,6 +203,7 @@ class Input extends Component {
             <div className="form-group text-center">
               <button
                 type="submit"
+                disabled={!isEnabled}
                 className="btn"
                 onClick={this.handleGetQuoteClick}
               >

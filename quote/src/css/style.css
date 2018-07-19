@@ -116,6 +116,11 @@ p {
   margin-bottom: 10px;
 }
 
+/* invalid input field*/
+.error {
+  border: 1px solid red;
+}
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 }

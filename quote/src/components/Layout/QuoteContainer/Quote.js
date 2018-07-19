@@ -41,10 +41,7 @@ class Quote extends Component {
 
 const mapStateToProps = state => ({
   customerRate: state.inputReducer.newQuote.CustomerRate,
-  customerAmount: state.inputReducer.newQuote.CustomerAmount,
-  fromCurrency: state.inputReducer.fromCurrency,
-  toCurrency: state.inputReducer.toCurrency,
-  amount: state.inputReducer.amount
+  customerAmount: state.inputReducer.newQuote.CustomerAmount
 });
 
 Quote = connect(
